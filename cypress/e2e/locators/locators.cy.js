@@ -32,8 +32,8 @@ describe('Locators in Cypress', function(){
 
     it('FIND Method', () => {
         cy.get('form').find('input').eq(0).type(username)//encuentra la posicion 0 del array de inputs
-        cy.get('form').find('input').eq(1).type(password)//encuentra la posicion 0 del array de inputs
-        cy.get('form').find('input').last().click()//encuentra la posicion 0 del array de inputs
+        cy.get('form').find('input').eq(1).type(password)//encuentra la posicion 1 del array de inputs
+        cy.get('form').find('input').last().click()//encuentra la ultima posicion del array de inputs
     });
 
     it('PARENT Method', () => {
