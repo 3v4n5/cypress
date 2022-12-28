@@ -4,7 +4,9 @@
   "description": "pruebas con cypress",
   "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:runDefault":"cypress run --spec cypress/e2e/asserts/assert.cy.js",
+    "cypress:runChrome":"cypress run --headless --browser chrome --spec cypress/e2e/asserts/assert.cy.js"
   },
   "keywords": [
     "cypress",
@@ -13,6 +15,6 @@
   "author": "3v4n5",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^11.2.0"
+    "cypress": "^12.2.0"
   }
 }

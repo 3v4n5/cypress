@@ -1,7 +1,11 @@
-class inventoryPage{
+export class inventoryPage{
     elements = {
-        titleSpan: cy.get('.title')
+        titleSpan: '.title'
+    }
+
+    getSpan(message){
+        cy.get(this.elements.titleSpan).contains(message)
     }
 }
 
-export default new inventoryPage();
+// export default inventoryPage;

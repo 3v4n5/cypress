@@ -6,6 +6,8 @@ module.exports = defineConfig({
   e2e: {
     
       "chromeWebSecurity": false,
+      "experimentalStudio": true,//cypress estudio beta
+
     
     // baseUrl: 'https://www.google.com/',
 

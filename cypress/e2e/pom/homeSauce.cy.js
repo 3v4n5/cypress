@@ -1,8 +1,11 @@
-import homeSaucePage from "../../pages/saucedemo/homeSaucePage";
-import inventoryPage from "../../pages/sauceDemo/inventoryPage";
+import { homeSaucePage } from "../../pages/saucedemo/homeSaucePage";
+import { inventoryPage } from "../../pages/sauceDemo/inventoryPage";
 
 describe('POM implementation', function() {
     
+    const login = new homeSaucePage();
+    const inventory = new inventoryPage();
+
     beforeEach(()=>{
         cy.visit('https://www.saucedemo.com')
     });
@@ -14,7 +17,7 @@ describe('POM implementation', function() {
         login.typePassword('secret_sauce')
         login.clickLogin()
 
-        inventoryPage.elements.titleSpan().should('have.text', 'Products')
+        inventory.getSpan('Products')
 
     });
     
@@ -24,7 +27,7 @@ describe('POM implementation', function() {
         login.typePassword('secret_sauce')
         login.clickLogin()
 
-        homeSaucePage.elements.titleSpan().should('have.text', 'Epic sadface: Sorry, this user has been locked out.')
+        login.getError('Epic sadface: Sorry, this user has been locked out.')
 
     });
     
@@ -34,7 +37,7 @@ describe('POM implementation', function() {
         login.typePassword('secret_sauce')
         login.clickLogin()
 
-        inventoryPage.elements.titleSpan().should('have.text', 'Epic sadface: Username and password do not match any user in this service')
+        login.getError('Epic sadface: Username and password do not match any user in this service')
 
     });
     
@@ -44,7 +47,7 @@ describe('POM implementation', function() {
         login.typePassword('dummyPassword')
         login.clickLogin()
 
-        inventoryPage.elements.titleSpan().should('have.text', 'Epic sadface: Username and password do not match any user in this service')
+        login.getError('Epic sadface: Username and password do not match any user in this service')
 
     });
 });
